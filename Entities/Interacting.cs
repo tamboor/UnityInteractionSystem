@@ -17,9 +17,13 @@ public class Interacting : MonoBehaviour , ITargeterListener
     }
 
 
-    private void InteractWith(Interactable interactable)
+    public void InteractWith(Interactable interactable)
     {
-        interactable.Interact(this);
+        //TODO: change to custom condition
+        if (interactable.enabled)
+        {
+            interactable.Interact(this);
+        }
     }
 
     public void FoundTarget(Transform target)
@@ -30,11 +34,13 @@ public class Interacting : MonoBehaviour , ITargeterListener
         }
     }
     protected virtual void OnTarget()
-    { }
+    {
+        //TODO: Apply shader
+    }
 
     public void LostTarget()
     {
-        throw new NotImplementedException();
+        //TODO: remove applied shader
     }
 
 
